@@ -1,0 +1,7 @@
+# Keep raw network packet captures private
+captures/
+
+# Exclude packet capture files anywhere in the project
+*.pcap
+*.pcapng
+*.cap
