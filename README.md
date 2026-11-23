@@ -68,9 +68,21 @@ Investigated DNS resolution behavior by examining A and AAAA queries for an inte
 
 The following topics were examined during the lab and are planned for further documentation:
 
-- TLS 1.3 handshake negotiation and cipher suite analysis.
 - TCP retransmissions and acknowledgment behavior.
 - TCP connection termination and capture limitations.
 
 These investigations will be linked here as their reports are completed.
 
+### 3. TLS 1.3 Handshake Investigation
+
+**Investigation Report:** [TLS 1.3 Handshake Analysis](investigations/tls-handshake-analysis.md)
+
+Analyzed TLS 1.3 handshake negotiation between a client workstation and a remote server communicating over TCP port 443.
+
+**Key Findings:**
+- Identified the initial Client Hello, Hello Retry Request, second Client Hello, and Server Hello.
+- Examined the client's supported TLS versions and cryptographic key exchange groups.
+- Investigated why the server requested a new `secp384r1` key share.
+- Verified the negotiated TLS 1.3 cipher suite, `TLS_AES_256_GCM_SHA384`.
+- Correlated handshake messages across multiple packets using Wireshark.
+- Documented packet-level evidence with four supporting screenshots.
