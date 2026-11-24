@@ -68,7 +68,6 @@ Investigated DNS resolution behavior by examining A and AAAA queries for an inte
 
 The following topics were examined during the lab and are planned for further documentation:
 
-- TCP retransmissions and acknowledgment behavior.
 - TCP connection termination and capture limitations.
 
 These investigations will be linked here as their reports are completed.
@@ -86,3 +85,22 @@ Analyzed TLS 1.3 handshake negotiation between a client workstation and a remote
 - Verified the negotiated TLS 1.3 cipher suite, `TLS_AES_256_GCM_SHA384`.
 - Correlated handshake messages across multiple packets using Wireshark.
 - Documented packet-level evidence with four supporting screenshots.
+
+### 4. TCP Retransmission & Duplicate Selective Acknowledgment Investigation
+
+Conducted a packet-level investigation of TCP retransmission behavior, cumulative acknowledgments, and Duplicate Selective Acknowledgment (D-SACK) using Wireshark.
+
+**Key Technical Findings:**
+
+- Identified 1776 bytes of original TCP payload.
+- Identified 1460 bytes of overlapping TCP sequence-number ranges.
+- Correlated original and retransmitted TCP segments.
+- Verified cumulative acknowledgment of transmitted data.
+- Analyzed D-SACK evidence confirming duplicate data delivery.
+- Examined retransmission timing and Wireshark TCP analysis flags.
+- Distinguished TCP reliability mechanisms from potential security incidents.
+- Documented investigation limitations and evidence-based conclusions.
+
+**Security Assessment:** The observed packet sequence was consistent with TCP reliability mechanisms. No direct evidence of malicious activity was identified, and the underlying cause of the retransmission could not be conclusively determined.
+
+**Investigation Report:** [TCP Retransmission Analysis](investigations/tcp-retransmission-analysis.md)
