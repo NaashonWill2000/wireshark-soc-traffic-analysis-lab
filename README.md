@@ -64,14 +64,6 @@ Investigated DNS resolution behavior by examining A and AAAA queries for an inte
 - Distinguished expected DNS resolution failures from potential security indicators.
 - Documented packet-level evidence and supporting Wireshark screenshots.
 
-### Additional Investigations
-
-The following topics were examined during the lab and are planned for further documentation:
-
-- TCP connection termination and capture limitations.
-
-These investigations will be linked here as their reports are completed.
-
 ### 3. TLS 1.3 Handshake Investigation
 
 **Investigation Report:** [TLS 1.3 Handshake Analysis](investigations/tls-handshake-analysis.md)
@@ -104,3 +96,29 @@ Conducted a packet-level investigation of TCP retransmission behavior, cumulativ
 **Security Assessment:** The observed packet sequence was consistent with TCP reliability mechanisms. No direct evidence of malicious activity was identified, and the underlying cause of the retransmission could not be conclusively determined.
 
 **Investigation Report:** [TCP Retransmission Analysis](investigations/tcp-retransmission-analysis.md)
+
+### 5. TCP Connection Termination and Capture Limitations Investigation
+
+**Investigation Focus:** TCP session lifecycle analysis, connection termination behavior, and packet capture visibility limitations.
+
+**Key Technical Findings:**
+
+- Isolated bidirectional TCP communication using stream-based display filters.
+- Investigated TCP FIN and RST flags to identify connection termination activity.
+- Confirmed that no FIN or RST packets were observed within TCP stream 3.
+- Analyzed the final observed TCP acknowledgment, including sequence numbers, acknowledgment numbers, and conversation completeness.
+- Calculated a remaining observation window of approximately 15.14 seconds.
+- Evaluated packet capture limitations and classified the connection termination status as inconclusive.
+- Distinguished confirmed technical evidence from unsupported assumptions.
+
+**Skills Demonstrated:**
+
+- TCP session lifecycle analysis
+- TCP flag and header analysis
+- Network traffic filtering
+- Network event timeline reconstruction
+- Packet capture visibility assessment
+- Evidence-based security analysis
+- Technical investigation and reporting
+
+**Full Investigation Report:** [TCP Connection Termination and Capture Limitations Investigation](investigations/tcp-connection-termination-analysis.md)
